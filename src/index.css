@@ -18,10 +18,12 @@ ul {
   justify-content: space-around;
 }
 
-li {
+li a{
   padding: 10px;
   cursor: pointer;
   display: flex;
+  text-decoration: none;
+  color: #fff;
 }
 
 li:hover {
