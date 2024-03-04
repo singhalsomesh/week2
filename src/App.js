@@ -6,16 +6,23 @@ import Cart from "./Cart";
 
 function App() {
   let [counter , setCounter] = useState(0);
+  let [cart , setCart] = useState([]);
+
   const handleCounter = (counter) => {
     setCounter(counter);
   }
+
+  const handleSetCart = (id) => {
+    setCart([...cart,id]);
+  }
+
   return (
     <Router>
       <div className="App">
-      <NavBar counter={counter} />
+      <NavBar counter={counter}/>
         <Routes>
-          <Route path="/" element={<Product onAddCart={handleCounter} />} />
-          <Route path="/cart" element={<Cart/>} />
+          <Route path="/" element={<Product onAddCart={handleCounter} onSetCart={handleSetCart}/>} />
+          <Route path="/cart" element={<Cart counter={cart}/>} />
         </Routes>
       </div>
     </Router>

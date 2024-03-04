@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Product({onAddCart}) {
+function Product({onAddCart,onSetCart}) {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
@@ -11,6 +11,7 @@ function Product({onAddCart}) {
         console.log('Item added to cart with id!', productId);
         console.log(newCartItems);
         onAddCart(newCartItems.length);
+        onSetCart(productId);
         return newCartItems;
       });
   };
